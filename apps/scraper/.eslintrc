@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "extends": [
+    "custom"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "project": [
+          "./apps/scraper/tsconfig.json",
+          "./apps/scraper/tsconfig.node.json"
+        ]
+      }
+    }
+  ]
+}

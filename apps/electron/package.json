@@ -1,0 +1,54 @@
+{
+  "name": "electron",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Immerse yourself in japanese contents",
+  "license": "MIT",
+  "main": "dist-electron/electron/main/index.js",
+  "author": {
+    "name": "だれか",
+    "email": "dareka@email.com"
+  },
+  "homepage": "https://arnolds.vercel.app/",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder",
+    "lint": "eslint"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "doublearray": "^0.0.2",
+    "kuromoji": "^0.1.2",
+    "kuromojin": "workspace:kuromojin",
+    "wanakana": "^5.0.2",
+    "zlibjs": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "electron": "^21.3.1",
+    "electron-builder": "^23.6.0",
+    "esbuild": "^0.16.10",
+    "eslint-config-custom": "workspace:*",
+    "postcss": "^8.4.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.2.4",
+    "tailwind-config": "workspace:*",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-electron-plugin": "^0.5.2",
+    "vite-plugin-electron-renderer": "^0.11.3"
+  },
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777"
+    }
+  }
+}

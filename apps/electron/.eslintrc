@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "extends": [
+    "custom"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "project": [
+          "./apps/electron/tsconfig.json",
+          "./apps/electron/tsconfig.node.json"
+        ]
+      }
+    }
+  ]
+}

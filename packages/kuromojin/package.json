@@ -1,0 +1,14 @@
+{
+  "name": "kuromojin",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "dependencies": {
+    "lru_map": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "tsconfig": "workspace:*"
+  }
+}
