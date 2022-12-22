@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "base.json",
-    "kuromojin.json"
+    "kuromojin.json",
+    "react-library.json"
   ]
 }

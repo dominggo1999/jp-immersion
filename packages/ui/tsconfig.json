@@ -1,0 +1,4 @@
+{
+  "extends": "tsconfig/react-ui.json",
+  "exclude": ["node_modules", "dist"]
+}

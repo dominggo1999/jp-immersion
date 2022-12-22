@@ -5,6 +5,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "dependencies": {
+    "kuromoji": "^0.1.2",
     "lru_map": "^0.4.1"
   },
   "devDependencies": {

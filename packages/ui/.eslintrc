@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": [
+    "custom"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "project": [
+          "./packages/ui/tsconfig.json"
+        ]
+      }
+    }
+  ]
+}

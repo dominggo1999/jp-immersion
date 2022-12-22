@@ -1,6 +1,6 @@
 import React from 'react'
 import { tokenize } from 'kuromojin'
-import Button from './components/Button'
+import { Button } from 'ui'
 
 tokenize('ありがとうございました').then((q) => {
   console.log(q)
