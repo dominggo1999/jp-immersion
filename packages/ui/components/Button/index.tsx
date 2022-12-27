@@ -28,12 +28,20 @@ const buttonCva = cva(
       isDisabled: {
         true: 'opacity-40 dark:opacity-20 cursor-not-allowed',
       },
+      isRounded: {
+        true: 'rounded-full',
+      },
+      isAspectSquare: {
+        true: 'aspect-square',
+      },
     },
     defaultVariants: {
       variant: 'primary',
       size: 'md',
       fullWidth: false,
       isDisabled: false,
+      isRounded: false,
+      isAspectSquare: false,
     },
   }
 )
@@ -69,7 +77,7 @@ const iconCva = cva('outline-2 outline-offset-2', {
 export interface Props
   extends React.HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonCva> {
-  children: React.ReactNode
+  children?: React.ReactNode
   icon?: IconType
   iconPosition?: 'right' | 'left'
   isDisabled?: boolean
@@ -91,6 +99,8 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, forwardedRef) => {
     loadingPosition = 'left',
     icon,
     iconPosition = 'left',
+    isRounded,
+    isAspectSquare,
   } = props
 
   const _ref = useRef<HTMLButtonElement>(null)
@@ -99,6 +109,35 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, forwardedRef) => {
   const { buttonProps } = useButton(props as any, ref as React.RefObject<HTMLButtonElement>)
 
   const iconClassName = iconCva({ size })
+
+  const renderLoadingIndicator = () => {
+    let loadingIndicatorSize
+
+    switch (size) {
+      case 'sm':
+        loadingIndicatorSize = 20
+        break
+      case 'md':
+        loadingIndicatorSize = 24
+        break
+      case 'lg':
+        loadingIndicatorSize = 28
+        break
+      case 'xl':
+        loadingIndicatorSize = 32
+        break
+      default:
+        break
+    }
+
+    return (
+      <ButtonLoadingIndicator
+        width={loadingIndicatorSize}
+        height={loadingIndicatorSize}
+        isIndeterminate
+      />
+    )
+  }
 
   return (
     <FocusRing focusRingClass={ringCva({ variant })}>
@@ -109,14 +148,20 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, forwardedRef) => {
           size,
           fullWidth,
           isDisabled,
+          isRounded,
+          isAspectSquare: isRounded || isAspectSquare,
         })}`}
         {...buttonProps}
       >
         {icon && iconPosition === 'left' && !isLoading && icon({ className: iconClassName })}
-        {isLoading && loadingPosition === 'left' && <ButtonLoadingIndicator isIndeterminate />}
-        {children}
+
+        {isLoading && loadingPosition === 'left' && renderLoadingIndicator()}
+
+        {children && children}
+
         {icon && iconPosition === 'right' && !isLoading && icon({ className: iconClassName })}
-        {isLoading && loadingPosition === 'right' && <ButtonLoadingIndicator isIndeterminate />}
+
+        {isLoading && loadingPosition === 'right' && renderLoadingIndicator()}
       </button>
     </FocusRing>
   )
