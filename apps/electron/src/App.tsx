@@ -1,6 +1,6 @@
 import React from 'react'
 import { tokenize } from 'kuromojin'
-import { Button } from 'ui'
+import Sample from './components/Sample'
 
 tokenize('ありがとうございました').then((q) => {
   console.log(q)
@@ -8,9 +8,9 @@ tokenize('ありがとうございました').then((q) => {
 
 const App = () => {
   return (
-    <div>
-      <Button />
-    </div>
+    <>
+      <Sample />
+    </>
   )
 }
 
