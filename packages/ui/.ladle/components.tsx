@@ -4,5 +4,5 @@ import '../index.css'
 import './style.css'
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
-  return <>{children}</>
+  return <div className={globalState.theme}>{children}</div>
 }

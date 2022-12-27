@@ -3,6 +3,9 @@
   "extends": [
     "custom"
   ],
+  "rules": {
+    "react/display-name": 0
+  },
   "overrides": [
     {
       "files": [
