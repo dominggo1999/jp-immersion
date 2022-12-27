@@ -8,3 +8,7 @@
     inset-inline-start: auto;
   }
 }
+
+body {
+  position: relative;
+}
